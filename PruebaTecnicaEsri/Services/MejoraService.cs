@@ -7,6 +7,7 @@ using System.Net.Http.Headers;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using PruebaTecnicaEsri.Helpers;
 
 namespace PruebaTecnicaEsri.Services
 {
@@ -21,7 +22,7 @@ namespace PruebaTecnicaEsri.Services
 
         public async Task<bool> UpdateMejora(string id, MejoraDTO mejoraDto, string token)
         {
-            var requestMessage = new HttpRequestMessage(HttpMethod.Post, $"https://localhost:7110/api/MejoraConstruccion/mejora/{id}");
+            var requestMessage = new HttpRequestMessage(HttpMethod.Post, $"{Urls.UpdateMejoraUrl}/{id}");
             requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
             requestMessage.Content = new StringContent(JsonConvert.SerializeObject(mejoraDto), Encoding.UTF8, "application/json");
 
@@ -42,7 +43,7 @@ namespace PruebaTecnicaEsri.Services
             };
 
             // Crear el HttpRequestMessage
-            var requestMessage = new HttpRequestMessage(HttpMethod.Post, $"https://localhost:7110/api/MejoraConstruccion/mejora/eliminar/{id}");
+            var requestMessage = new HttpRequestMessage(HttpMethod.Post, $"{Urls.DeleteMejoraUrl}/{id}");
             requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
             requestMessage.Content = new StringContent(JsonConvert.SerializeObject(requestBody), Encoding.UTF8, "application/json");
 

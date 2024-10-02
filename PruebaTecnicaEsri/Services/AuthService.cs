@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using PruebaTecnicaEsri.Helpers;
 
 namespace PruebaTecnicaEsri.Services
 {
@@ -33,7 +34,7 @@ namespace PruebaTecnicaEsri.Services
                 var json = JsonConvert.SerializeObject(loginDto);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                var response = await client.PostAsync("https://localhost:7110/api/Auth/login", content);
+                var response = await client.PostAsync(Urls.LoginUrl, content);
 
                 if (response.IsSuccessStatusCode)
                 {

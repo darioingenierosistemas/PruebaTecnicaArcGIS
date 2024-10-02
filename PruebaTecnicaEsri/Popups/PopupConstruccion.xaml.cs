@@ -101,15 +101,15 @@ namespace PruebaTecnicaEsri.Popups
 
             if (result)
             {
-                MessageBox.Show("Mejora actualizada exitosamente.");
+                MessageBox.Show("Construccion actualizada exitosamente.");
                 DialogResult = true;
                 Close();
             }
             else
             {
-                MessageBox.Show("Error al actualizar la mejora.");
-                DialogResult = true;
+                DialogResult = false;
                 Close();
+                MessageBox.Show("Error al actualizar la construccion.");
             }
         }
 
@@ -127,15 +127,16 @@ namespace PruebaTecnicaEsri.Popups
 
             if (result)
             {
-                MessageBox.Show("Mejora actualizada exitosamente.");
+                MessageBox.Show("Construccioneliminada exitosamente.");
                 DialogResult = true;
                 Close();
             }
             else
             {
-                MessageBox.Show("Error al actualizar la mejora.");
                 DialogResult = false;
                 Close();
+                MessageBox.Show("Error al eliminar la construccion.");
+               
             }
             
         }

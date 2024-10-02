@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using PruebaTecnicaEsri.DTO;
+using PruebaTecnicaEsri.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace PruebaTecnicaEsri.Services
 
         public async Task<bool> UpdateConstruccion(string id, ConstruccionDTO construccionDTO, string token)
         {
-            var requestMessage = new HttpRequestMessage(HttpMethod.Post, $"https://localhost:7110/api/MejoraConstruccion/construccion/{id}");
+            var requestMessage = new HttpRequestMessage(HttpMethod.Post, $"{Urls.UpdateConstruccionUrl}/{id}");
             requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
             requestMessage.Content = new StringContent(JsonConvert.SerializeObject(construccionDTO), Encoding.UTF8, "application/json");
 
@@ -43,7 +44,7 @@ namespace PruebaTecnicaEsri.Services
             };
 
             // Crear el HttpRequestMessage
-            var requestMessage = new HttpRequestMessage(HttpMethod.Post, $"https://localhost:7110/api/MejoraConstruccion/construccion/eliminar/{id}");
+            var requestMessage = new HttpRequestMessage(HttpMethod.Post, $"{Urls.DeleteConstruccionUrl}/{id}");
             requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
             requestMessage.Content = new StringContent(JsonConvert.SerializeObject(requestBody), Encoding.UTF8, "application/json");
 
