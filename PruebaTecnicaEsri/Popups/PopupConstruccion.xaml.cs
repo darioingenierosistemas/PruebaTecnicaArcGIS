@@ -1,6 +1,7 @@
 ﻿using Esri.ArcGISRuntime.Data;
 using PruebaTecnicaEsri.Repository;
 using PruebaTecnicaEsri.Services;
+using PruebaTecnicaEsri.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,41 +61,56 @@ namespace PruebaTecnicaEsri.Popups
             FechaSicronizacionTextBox.Text = _feature.Attributes["FechaSicronizacion"]?.ToString();
         }
 
-        private void Save_Click(object sender, RoutedEventArgs e)
+        private async void Save_Click(object sender, RoutedEventArgs e)
         {
-            // Actualizar los atributos con los nuevos valores
-            _feature.Attributes["TipoUnidadEspacial"] = Convert.ToInt32(TipoUnidadEspacialTextBox.Text);
-            _feature.Attributes["AreaCalculada"] = Convert.ToDouble(AreaCalculadaTextBox.Text);
-            _feature.Attributes["ValorUnitario"] = Convert.ToDouble(ValorUnitarioTextBox.Text);
-            _feature.Attributes["ValorNuevo"] = Convert.ToDouble(ValorNuevoTextBox.Text);
-            _feature.Attributes["CodConstruccion"] = CodConstruccionTextBox.Text;
-            _feature.Attributes["EstadoConstruccion"] = EstadoConstruccionTextBox.Text;
-            _feature.Attributes["UCTipoConstruccion"] = UCTipoConstruccionTextBox.Text;
-            _feature.Attributes["UCNumeroPisos"] = Convert.ToInt32(UCNumeroPisosTextBox.Text);
-            _feature.Attributes["UCAnioConstruccion"] = Convert.ToInt32(UCAnioConstruccionTextBox.Text);
-            _feature.Attributes["UCNumSalas"] = Convert.ToInt32(UCNumSalasTextBox.Text);
-            _feature.Attributes["UCNumLocales"] = Convert.ToInt32(UCNumLocalesTextBox.Text);
-            _feature.Attributes["UCNumHabitaciones"] = Convert.ToInt32(UCNumHabitacionesTextBox.Text);
-            _feature.Attributes["UCNumBanios"] = Convert.ToInt32(UCNumBaniosTextBox.Text);
-            _feature.Attributes["UCNumCocinas"] = Convert.ToInt32(UCNumCocinasTextBox.Text);
-            _feature.Attributes["UCNumOficinas"] = Convert.ToInt32(UCNumOficinasTextBox.Text);
-            _feature.Attributes["UCNumEstudios"] = Convert.ToInt32(UCNumEstudiosTextBox.Text);
-            _feature.Attributes["UCNumBodegas"] = Convert.ToInt32(UCNumBodegasTextBox.Text);
-            _feature.Attributes["UCRelacionSuperficie"] = UCRelacionSuperficieTextBox.Text;
-            _feature.Attributes["UCPiso"] = UCPisoTextBox.Text;
-            _feature.Attributes["UCEstadoConservacion"] = UCEstadoConservacionTextBox.Text;
-            _feature.Attributes["UCMaterialCubierta"] = UCMaterialCubiertaTextBox.Text;
-            _feature.Attributes["UCMaterialParedes"] = UCMaterialParedesTextBox.Text;
-            _feature.Attributes["UCMaterialPiso"] = UCMaterialPisoTextBox.Text;
-            _feature.Attributes["ObservacionesModificacion"] = ObservacionesModificacionTextBox.Text;
-            _feature.Attributes["Observacion"] = ObservacionTextBox.Text;
-            _feature.Attributes["CodigoNegocioUnidadEspacial"] = CodigoNegocioUnidadEspacialTextBox.Text;
-            _feature.Attributes["Relacion_UnidadEspacial"] = RelacionUnidadEspacialTextBox.Text;
-            _feature.Attributes["FechaSicronizacion"] = DateTime.TryParse(FechaSicronizacionTextBox.Text, out DateTime fecha) ? (DateTime?)fecha : null;
+            var constuccionDTO = new ConstruccionDTO
+            {
+                TipoUnidadEspacial = Convert.ToInt32(TipoUnidadEspacialTextBox.Text),
+                AreaCalculada = Convert.ToDouble(AreaCalculadaTextBox.Text),
+                ValorUnitario = Convert.ToDouble(ValorUnitarioTextBox.Text),
+                ValorNuevo = Convert.ToDouble(ValorNuevoTextBox.Text),
+                CodConstruccion = CodConstruccionTextBox.Text,
+                EstadoConstruccion = EstadoConstruccionTextBox.Text,
+                UCTipoConstruccion = UCTipoConstruccionTextBox.Text,
+                UCNumeroPisos = Convert.ToInt32(UCNumeroPisosTextBox.Text),
+                UCAnioConstruccion = Convert.ToInt32(UCAnioConstruccionTextBox.Text),
+                UCNumSalas = Convert.ToInt32(UCNumSalasTextBox.Text),
+                UCNumLocales = Convert.ToInt32(UCNumLocalesTextBox.Text),
+                UCNumHabitaciones = Convert.ToInt32(UCNumHabitacionesTextBox.Text),
+                UCNumBanios = Convert.ToInt32(UCNumBaniosTextBox.Text),
+                UCNumCocinas = Convert.ToInt32(UCNumCocinasTextBox.Text),
+                UCNumOficinas = Convert.ToInt32(UCNumOficinasTextBox.Text),
+                UCNumEstudios = Convert.ToInt32(UCNumEstudiosTextBox.Text),
+                UCNumBodegas = Convert.ToInt32(UCNumBodegasTextBox.Text),
+                UCRelacionSuperficie = UCRelacionSuperficieTextBox.Text,
+                UCPiso = UCPisoTextBox.Text,
+                UCEstadoConservacion = UCEstadoConservacionTextBox.Text,
+                UCMaterialCubierta = UCMaterialCubiertaTextBox.Text,
+                UCMaterialParedes = UCMaterialParedesTextBox.Text,
+                UCMaterialPiso = UCMaterialPisoTextBox.Text,
+                ObservacionesModificacion = ObservacionesModificacionTextBox.Text,
+                Observacion = ObservacionTextBox.Text,
+                CodigoNegocioUnidadEspacial = CodigoNegocioUnidadEspacialTextBox.Text,
+                RelacionUnidadEspacial = RelacionUnidadEspacialTextBox.Text,
+                FechaSicronizacion = DateTime.TryParse(FechaSicronizacionTextBox.Text, out DateTime fecha) ? (DateTime?)fecha : null
+            };
 
+            var service = new ConstruccionService(new HttpClient());
+            var token = TokenStorage.Token;
+            var result = await service.UpdateConstruccion(CodConstruccionTextBox.Text, constuccionDTO, token);
 
-            DialogResult = true;
-            Close();
+            if (result)
+            {
+                MessageBox.Show("Mejora actualizada exitosamente.");
+                DialogResult = true;
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Error al actualizar la mejora.");
+                DialogResult = true;
+                Close();
+            }
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
@@ -118,9 +134,10 @@ namespace PruebaTecnicaEsri.Popups
             else
             {
                 MessageBox.Show("Error al actualizar la mejora.");
+                DialogResult = false;
+                Close();
             }
-            DialogResult = false;
-            Close();
+            
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)

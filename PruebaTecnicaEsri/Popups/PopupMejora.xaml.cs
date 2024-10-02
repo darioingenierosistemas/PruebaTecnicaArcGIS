@@ -104,6 +104,8 @@ namespace PruebaTecnicaEsri.Popups
             else
             {
                 MessageBox.Show("Error al actualizar la mejora.");
+                DialogResult = true;
+                Close();
             }
         }
         private void Cancel_Click(object sender, RoutedEventArgs e)
@@ -127,9 +129,10 @@ namespace PruebaTecnicaEsri.Popups
             else
             {
                 MessageBox.Show("Error al actualizar la mejora.");
+                DialogResult = false;
+                Close();
             }
-            DialogResult = false;
-            Close();
+           
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
