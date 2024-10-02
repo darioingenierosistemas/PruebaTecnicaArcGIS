@@ -144,7 +144,8 @@ namespace ArcGISApi.Services
                         }
                     }
                 },
-                    f = "json"
+                f = "json",
+                rollbackOnFailure = true
             };
 
             var response = await _httpClient.PostAsJsonAsync(url, requestBody);
