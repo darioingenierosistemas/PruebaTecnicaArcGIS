@@ -1,0 +1,126 @@
+﻿<Window x:Class="PruebaTecnicaEsri.Popups.PopupMejora"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/xam"
+        xmlns:local="clr-namespace:PruebaTecnicaEsri.Popups"
+        mc:Ignorable="d"
+        Title="Editar Mejoras" Height="400" Width="400">
+    <Grid Margin="10">
+        <ScrollViewer HorizontalScrollBarVisibility="Visible">
+        <StackPanel>
+                <!-- Código Mejora (string) -->
+                <TextBlock Text="Código Mejora:" />
+                <TextBox x:Name="CodigoMejoraTextBox" IsEnabled="False" />
+
+                <!-- Invasión (int?) -->
+                <TextBlock Text="Invasión:" Margin="0,10,0,0"/>
+                <TextBox x:Name="InvasionTextBox" PreviewTextInput="NumberValidationTextBox" />
+
+                <!-- Tipo de Mejora (string) -->
+                <TextBlock Text="Tipo de Mejora:" Margin="0,10,0,0"/>
+                <TextBox x:Name="TipoMejoraTextBox" />
+
+                <!-- Estado de Conservación (string) -->
+                <TextBlock Text="Estado de Conservación:" Margin="0,10,0,0"/>
+                <TextBox x:Name="EstadoConservacionTextBox" />
+
+                <!-- Área de Mejora (double?) -->
+                <TextBlock Text="Área de Mejora (m²):" Margin="0,10,0,0"/>
+                <TextBox x:Name="AreaMejoraTextBox" PreviewTextInput="DecimalValidationTextBox" />
+
+                <!-- Edad (string) -->
+                <TextBlock Text="Edad:" Margin="0,10,0,0"/>
+                <TextBox x:Name="EdadTextBox" />
+
+                <!-- Edad (Años) (int?) -->
+                <TextBlock Text="Edad (Años):" Margin="0,10,0,0"/>
+                <TextBox x:Name="EdadAniosTextBox" PreviewTextInput="NumberValidationTextBox" />
+
+                <!-- Cantidad (int?) -->
+                <TextBlock Text="Cantidad:" Margin="0,10,0,0"/>
+                <TextBox x:Name="CantidadTextBox" PreviewTextInput="NumberValidationTextBox" />
+
+                <!-- Unidad (string) -->
+                <TextBlock Text="Unidad:" Margin="0,10,0,0"/>
+                <TextBox x:Name="UnidadTextBox" />
+
+                <!-- Valor a Nuevo (double?) -->
+                <TextBlock Text="Valor a Nuevo:" Margin="0,10,0,0"/>
+                <TextBox x:Name="ValorAnuevoTextBox" PreviewTextInput="DecimalValidationTextBox" />
+
+                <!-- Valor de la Mejora (double?) -->
+                <TextBlock Text="Valor de la Mejora:" Margin="0,10,0,0"/>
+                <TextBox x:Name="ValorMejoraTextBox" PreviewTextInput="DecimalValidationTextBox" />
+
+                <!-- Valor Unitario (double?) -->
+                <TextBlock Text="Valor Unitario:" Margin="0,10,0,0"/>
+                <TextBox x:Name="ValorUnitarioTextBox" PreviewTextInput="DecimalValidationTextBox" />
+
+                <!-- Calidad del Dato (int?) -->
+                <TextBlock Text="Calidad del Dato:" Margin="0,10,0,0"/>
+                <TextBox x:Name="CalidadDatoTextBox" PreviewTextInput="NumberValidationTextBox" />
+
+                <!-- Fuente del Dato (int?) -->
+                <TextBlock Text="Fuente del Dato:" Margin="0,10,0,0"/>
+                <TextBox x:Name="FuenteDatoTextBox" PreviewTextInput="NumberValidationTextBox" />
+
+                <!-- Descripción (string) -->
+                <TextBlock Text="Descripción:" Margin="0,10,0,0"/>
+                <TextBox x:Name="DescripcionTextBox" />
+
+                <!-- FKID Tramo Predial (Guid?) -->
+                <TextBlock Text="FKID Tramo Predial:" Margin="0,10,0,0"/>
+                <TextBox x:Name="FKIDTramoPredialTextBox" />
+
+                <!-- Código Negocio Mejora (string) -->
+                <TextBlock Text="Código Negocio Mejora:" Margin="0,10,0,0"/>
+                <TextBox x:Name="CodigoNegocioMejoraTextBox" />
+
+                <!-- Fecha de Creación (DateTime?) -->
+                <TextBlock Text="Fecha de Creación:" Margin="0,10,0,0"/>
+                <DatePicker x:Name="FechaCreacionTextBox" />
+
+                <!-- Usuario Creador (string) -->
+                <TextBlock Text="Usuario Creador:" Margin="0,10,0,0"/>
+                <TextBox x:Name="UsuarioCreadorTextBox" />
+
+                <!-- Fecha de Modificación (DateTime?) -->
+                <TextBlock Text="Fecha de Modificación:" Margin="0,10,0,0"/>
+                <DatePicker x:Name="FechaModificacionTextBox" />
+
+                <!-- Usuario Modifica (string) -->
+                <TextBlock Text="Usuario Modifica:" Margin="0,10,0,0"/>
+                <TextBox x:Name="UsuarioModificaTextBox" />
+
+                <!-- OBJECTID (int) -->
+                <TextBlock Text="OBJECTID:" Margin="0,10,0,0"/>
+                <TextBox x:Name="ObjectIdTextBox" IsEnabled="False" PreviewTextInput="NumberValidationTextBox" />
+
+                <!-- ID Mejora (Guid) -->
+                <TextBlock Text="ID Mejora:" Margin="0,10,0,0"/>
+                <TextBox x:Name="IdMejoraTextBox" />
+
+                <!-- Relación Mejora (string) -->
+                <TextBlock Text="Relación Mejora:" Margin="0,10,0,0"/>
+                <TextBox x:Name="RelacionMejoraTextBox" />
+
+                <!-- Relación Migración (Guid?) -->
+                <TextBlock Text="Relación Migración:" Margin="0,10,0,0"/>
+                <TextBox x:Name="RelacionMigracionTextBox" />
+
+                <!-- Fecha de Sincronización (DateTime?) -->
+                <TextBlock Text="Fecha de Sincronización:" Margin="0,10,0,0"/>
+                <DatePicker x:Name="FechaSincronizacionTextBox" />
+
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+                    <Button Content="Guardar" Width="75" Margin="0,0,10,0" Click="Save_Click"/>
+                    <Button Content="Cancelar" Width="75" Margin="0,0,10,0" Click="Cancel_Click"/>
+                    <Button Content="Borrar" Width="75" Margin="0,0,10,0" Click="Borrar_Click" Background="Red"/>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>

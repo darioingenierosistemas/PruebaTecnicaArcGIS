@@ -1,0 +1,134 @@
+﻿<Window x:Class="PruebaTecnicaEsri.Popups.PopupConstruccion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PruebaTecnicaEsri.Popups"
+        mc:Ignorable="d"
+        Title="Editar Construccion" Height="400" Width="400">
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Visible">
+        <StackPanel Margin="10">
+
+                <!-- Código Construcción (string) -->
+                <TextBlock Text="Código Construcción:" Margin="0,10,0,0"/>
+                <TextBox x:Name="CodConstruccionTextBox" IsEnabled="False" />
+
+                <!-- Tipo Unidad Espacial (int?) -->
+                <TextBlock Text="Tipo Unidad Espacial:" Margin="0,10,0,0"/>
+                <TextBox x:Name="TipoUnidadEspacialTextBox" PreviewTextInput="NumberValidationTextBox" />
+
+                <!-- Área Calculada (double?) -->
+                <TextBlock Text="Área Calculada:" Margin="0,10,0,0"/>
+                <TextBox x:Name="AreaCalculadaTextBox" PreviewTextInput="DecimalValidationTextBox" />
+
+                <!-- Valor Unitario (double?) -->
+                <TextBlock Text="Valor Unitario:" Margin="0,10,0,0"/>
+                <TextBox x:Name="ValorUnitarioTextBox" PreviewTextInput="DecimalValidationTextBox" />
+
+                <!-- Valor Nuevo (double?) -->
+                <TextBlock Text="Valor Nuevo:" Margin="0,10,0,0"/>
+                <TextBox x:Name="ValorNuevoTextBox" PreviewTextInput="DecimalValidationTextBox" />
+
+                <!-- Estado Construcción (string) -->
+                <TextBlock Text="Estado Construcción:" Margin="0,10,0,0"/>
+                <TextBox x:Name="EstadoConstruccionTextBox" />
+
+                <!-- Tipo Construcción (string) -->
+                <TextBlock Text="Tipo Construcción:" Margin="0,10,0,0"/>
+                <TextBox x:Name="UCTipoConstruccionTextBox" />
+
+                <!-- Número de Pisos (int?) -->
+                <TextBlock Text="Número de Pisos:" Margin="0,10,0,0"/>
+                <TextBox x:Name="UCNumeroPisosTextBox" PreviewTextInput="NumberValidationTextBox" />
+
+                <!-- Año de Construcción (int?) -->
+                <TextBlock Text="Año de Construcción:" Margin="0,10,0,0"/>
+                <TextBox x:Name="UCAnioConstruccionTextBox" PreviewTextInput="NumberValidationTextBox" />
+
+                <!-- Número de Salas (int?) -->
+                <TextBlock Text="Número de Salas:" Margin="0,10,0,0"/>
+                <TextBox x:Name="UCNumSalasTextBox" PreviewTextInput="NumberValidationTextBox" />
+
+                <!-- Número de Locales (int?) -->
+                <TextBlock Text="Número de Locales:" Margin="0,10,0,0"/>
+                <TextBox x:Name="UCNumLocalesTextBox" PreviewTextInput="NumberValidationTextBox" />
+
+                <!-- Número de Habitaciones (int?) -->
+                <TextBlock Text="Número de Habitaciones:" Margin="0,10,0,0"/>
+                <TextBox x:Name="UCNumHabitacionesTextBox" PreviewTextInput="NumberValidationTextBox" />
+
+                <!-- Número de Baños (int?) -->
+                <TextBlock Text="Número de Baños:" Margin="0,10,0,0"/>
+                <TextBox x:Name="UCNumBaniosTextBox" PreviewTextInput="NumberValidationTextBox" />
+
+                <!-- Número de Cocinas (int?) -->
+                <TextBlock Text="Número de Cocinas:" Margin="0,10,0,0"/>
+                <TextBox x:Name="UCNumCocinasTextBox" PreviewTextInput="NumberValidationTextBox" />
+
+                <!-- Número de Oficinas (int?) -->
+                <TextBlock Text="Número de Oficinas:" Margin="0,10,0,0"/>
+                <TextBox x:Name="UCNumOficinasTextBox" PreviewTextInput="NumberValidationTextBox" />
+
+                <!-- Número de Estudios (int?) -->
+                <TextBlock Text="Número de Estudios:" Margin="0,10,0,0"/>
+                <TextBox x:Name="UCNumEstudiosTextBox" PreviewTextInput="NumberValidationTextBox" />
+
+                <!-- Número de Bodegas (int?) -->
+                <TextBlock Text="Número de Bodegas:" Margin="0,10,0,0"/>
+                <TextBox x:Name="UCNumBodegasTextBox" PreviewTextInput="NumberValidationTextBox" />
+
+                <!-- Relación Superficie (string) -->
+                <TextBlock Text="Relación Superficie:" Margin="0,10,0,0"/>
+                <TextBox x:Name="UCRelacionSuperficieTextBox" />
+
+                <!-- Piso (string) -->
+                <TextBlock Text="Piso:" Margin="0,10,0,0"/>
+                <TextBox x:Name="UCPisoTextBox" />
+
+                <!-- Estado de Conservación (string) -->
+                <TextBlock Text="Estado de Conservación:" Margin="0,10,0,0"/>
+                <TextBox x:Name="UCEstadoConservacionTextBox" />
+
+                <!-- Material de Cubierta (string) -->
+                <TextBlock Text="Material de Cubierta:" Margin="0,10,0,0"/>
+                <TextBox x:Name="UCMaterialCubiertaTextBox" />
+
+                <!-- Material de Paredes (string) -->
+                <TextBlock Text="Material de Paredes:" Margin="0,10,0,0"/>
+                <TextBox x:Name="UCMaterialParedesTextBox" />
+
+                <!-- Material de Piso (string) -->
+                <TextBlock Text="Material de Piso:" Margin="0,10,0,0"/>
+                <TextBox x:Name="UCMaterialPisoTextBox" />
+
+                <!-- Observaciones de Modificación (string) -->
+                <TextBlock Text="Observaciones de Modificación:" Margin="0,10,0,0"/>
+                <TextBox x:Name="ObservacionesModificacionTextBox" />
+
+                <!-- Observación (string) -->
+                <TextBlock Text="Observación:" Margin="0,10,0,0"/>
+                <TextBox x:Name="ObservacionTextBox" />
+
+                <!-- Código de Negocio Unidad Espacial (string) -->
+                <TextBlock Text="Código de Negocio Unidad Espacial:" Margin="0,10,0,0"/>
+                <TextBox x:Name="CodigoNegocioUnidadEspacialTextBox" />
+
+                <!-- Relación Unidad Espacial (string) -->
+                <TextBlock Text="Relación Unidad Espacial:" Margin="0,10,0,0"/>
+                <TextBox x:Name="RelacionUnidadEspacialTextBox" />
+
+                <!-- Fecha de Sincronización (DateTime?) -->
+                <TextBlock Text="Fecha de Sincronización:" Margin="0,10,0,0"/>
+                <DatePicker x:Name="FechaSicronizacionTextBox" />
+
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+                    <Button Content="Guardar" Width="75" Margin="0,0,10,0" Click="Save_Click"/>
+                    <Button Content="Cancelar" Width="75" Margin="0,0,10,0" Click="Cancel_Click"/>
+                    <Button Content="Borrar" Width="75" Margin="0,0,10,0" Click="Borrar_Click" Background="Red"/>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>
