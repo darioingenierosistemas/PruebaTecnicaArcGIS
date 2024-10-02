@@ -40,7 +40,7 @@ El proyecto consiste en una API desarrollada en .NET, que interactúa con el Arc
 
 ## Observaciones de la Prueba Tecnica e Inconvenientes
 
-- **Observacion**: Se debe mencionar que para usar la API de ArcGis es necesario crear una cuenta y crear una clave de API para poder usarla, yo por ya haberla trabajado antes sabia que esto era necesario; pero una persona nueva hubiera tenido muchos inconvenientes.
+- **Observacion**: Se debe mencionar que para usar la API de ArcGis es necesario crear una cuenta y crear una clave de API para poder usarla, yo por ya haberla trabajado antes sabia que esto era necesario; pero una persona nueva hubiera tenido muchos inconvenientes. Como solo se estan pidiendo para la prueba los enpoint de Mejoras y Construccion, para solo esas capas se realizo el PopUp.
 
 - **Inconvenientes**: El mayor inconveniente fue que se necesitaba era la informacion de Mejoras y Construcciones, para las cuales no se nos dieron unas coordenadas para buscar en el mapa, ya que las Mejoras para poder verlas se debe acercar bastante el mapa y me tomo bastante tiempo poder encontrar unas para hacer pruebas.
                       Otro inconveniente fue la falta de un Json modelo para poder mandar a los servicios de UpdateFeature y DeleteFeature que estaban en el servicio de ArcGis que se dio, debido a esto no pude realizar el Update o el Delete de manera satisfactoria.
